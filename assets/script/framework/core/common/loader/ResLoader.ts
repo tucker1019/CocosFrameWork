@@ -33,7 +33,7 @@ var onComplete = (err: Error | null, data: ImageAsset) => {
     var sprite = this.sprite.addComponent(Sprite);
     sprite.spriteFrame = spriteFrame;
 }
-oops.res.loadRemote<ImageAsset>(this.url, opt, onComplete);
+frame.res.loadRemote<ImageAsset>(this.url, opt, onComplete);
      */
     loadRemote<T extends Asset>(url: string, options: IRemoteOptions | null, onComplete?: CompleteCallback<T> | null): void;
     loadRemote<T extends Asset>(url: string, onComplete?: CompleteCallback<T> | null): void;
@@ -58,7 +58,7 @@ oops.res.loadRemote<ImageAsset>(this.url, opt, onComplete);
      * @example
 var serverUrl = "http://192.168.1.8:8080/";         // 服务器地址
 var md5 = "8e5c0";                                  // Cocos Creator 构建后的MD5字符
-await oops.res.loadBundle(serverUrl,md5);
+await frame.res.loadBundle(serverUrl,md5);
      */
     loadBundle(url: string, v?: string) {
         return new Promise<AssetManager.Bundle>((resolve, reject) => {
@@ -79,7 +79,7 @@ await oops.res.loadBundle(serverUrl,md5);
      * @param onProgress    加载进度回调
      * @param onComplete    加载完成回调
      * @example
-oops.res.load("spine_path", sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
+frame.res.load("spine_path", sp.SkeletonData, (err: Error | null, sd: sp.SkeletonData) => {
 
 });
      */
@@ -126,7 +126,7 @@ var onProgressCallback = (finished: number, total: number, item: any) => {
 var onCompleteCallback = () => {
     console.log("资源加载完成");
 }
-oops.res.loadDir("game", onProgressCallback, onCompleteCallback);
+frame.res.loadDir("game", onProgressCallback, onCompleteCallback);
      */
     loadDir<T extends Asset>(bundleName: string, dir: string, type: AssetType<T> | null, onProgress: ProgressCallback | null, onComplete: CompleteCallback<T[]> | null): void;
     loadDir<T extends Asset>(bundleName: string, dir: string, onProgress: ProgressCallback | null, onComplete: CompleteCallback<T[]> | null): void;

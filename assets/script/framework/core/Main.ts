@@ -1,9 +1,3 @@
-/*
- * @Author: dgflash
- * @Date: 2021-07-03 16:13:17
- * @LastEditors: dgflash
- * @LastEditTime: 2022-10-27 18:23:06
- */
 import { dynamicAtlasManager, macro, profiler, Root, _decorator } from 'cc';
 import { DEBUG, JSB } from 'cc/env';
 import { ecs } from '../libs/ecs/ECS';

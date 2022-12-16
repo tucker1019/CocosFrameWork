@@ -1,5 +1,6 @@
 import { Component, director, Node } from "cc";
-import { oops } from "../../frame";
+import { frame } from "../../frame";
+
 import { AudioEffect } from "./AudioEffect";
 import { AudioMusic } from "./AudioMusic";
 
@@ -8,8 +9,8 @@ const LOCAL_STORE_KEY = "game_audio";
 /** 
  * 音频管理
  * @example 
-// 模块功能通过 oops.audio 调用
-oops.audio.playMusic("audios/nocturne");
+// 模块功能通过 frame.audio 调用
+frame.audio.playMusic("audios/nocturne");
  */
 export class AudioManager extends Component {
     static _instance: AudioManager;
@@ -181,13 +182,13 @@ export class AudioManager extends Component {
         this.local_data.switch_effect = this._switch_effect;
 
         let data = JSON.stringify(this.local_data);
-        oops.storage.set(LOCAL_STORE_KEY, data);
+        frame.storage.set(LOCAL_STORE_KEY, data);
     }
 
 
     /** 本地加载音乐音效的音量、开关配置数据并设置到游戏中 */
     load() {
-        let data = oops.storage.get(LOCAL_STORE_KEY);
+        let data = frame.storage.get(LOCAL_STORE_KEY);
         if (data) {
             try {
                 this.local_data = JSON.parse(data);

@@ -27,12 +27,12 @@ var names = {
 /** 
  * 日志管理 
  * @example
-oops.log.trace("默认标准日志");
-oops.log.logConfig("灰色配置日志");
-oops.log.logNet("橙色网络日志");
-oops.log.logModel("紫色数据日志");
-oops.log.logBusiness("蓝色业务日志");
-oops.log.logView("绿色视图日志");
+frame.log.trace("默认标准日志");
+frame.log.logConfig("灰色配置日志");
+frame.log.logNet("橙色网络日志");
+frame.log.logModel("紫色数据日志");
+frame.log.logBusiness("蓝色业务日志");
+frame.log.logView("绿色视图日志");
  */
 export class Logger {
     private static tags: number = 0;
@@ -50,7 +50,7 @@ export class Logger {
     /** 
      * 设置显示的日志类型，默认值为不显示任何类型日志
      * @example
-oops.log.setTags(LogType.View|LogType.Business)
+frame.log.setTags(LogType.View|LogType.Business)
      */
     static setTags(tag: LogType = null!) {
         if (tag) {
@@ -62,11 +62,11 @@ oops.log.setTags(LogType.View|LogType.Business)
      * 记录开始计时
      * @param describe  标题描述
      * @example
-oops.log.start();
+frame.log.start();
 ...
 省略N行代码
 ...
-oops.log.end();
+frame.log.end();
      */
     static start(describe: string = "Time"): void {
         console.time(describe);
@@ -76,11 +76,11 @@ oops.log.end();
      * 打印范围内时间消耗
      * @param describe  标题描述
      * @example
-oops.log.start();
+frame.log.start();
 ...
 省略N行代码
 ...
-oops.log.end();
+frame.log.end();
      */
     static end(describe: string = "Time"): void {
         console.timeEnd(describe);
@@ -91,8 +91,8 @@ oops.log.end();
      * @param msg       日志消息
      * @param describe  标题描述
      * @example
-var object:any = {uid:1000, name:"oops"};
-oops.log.table(object);
+var object:any = {uid:1000, name:"frame"};
+frame.log.table(object);
      */
     static table(msg: any, describe?: string) {
         if (!this.isOpen(LogType.Trace)) {

@@ -73,12 +73,12 @@ export class MessageEventData {
 export class RoleViewComp extends Component{
     onLoad(){
         // 监听全局事件
-        oops.message.on(GameEvent.GameServerConnected, this.onHandler, this);
+        frame.message.on(GameEvent.GameServerConnected, this.onHandler, this);
     }
     
     protected onDestroy() {
         // 对象释放时取消注册的全局事件
-        oops.message.off(GameEvent.GameServerConnected, this.onHandler, this);
+        frame.message.off(GameEvent.GameServerConnected, this.onHandler, this);
     }
     
     private onHandler(event: string, args: any) {
@@ -94,7 +94,7 @@ export class RoleViewComp extends Component{
 export class RoleViewComp extends Component{
     onLoad(){
         // 监听一次事件，事件响应后，该监听自动移除
-        oops.message.once(GameEvent.GameServerConnected, this.onHandler, this);
+        frame.message.once(GameEvent.GameServerConnected, this.onHandler, this);
     }
     
     private onHandler(event: string, args: any) {
